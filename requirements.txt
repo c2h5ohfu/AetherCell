@@ -1,0 +1,4 @@
+langchain-core==0.3.40
+typing_extensions==4.12.2
+langgraph==0.3.2
+langchain-community==0.3.12
