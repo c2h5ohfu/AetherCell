@@ -1,4 +1,9 @@
 langchain-core==0.3.40
 typing_extensions==4.12.2
-langgraph==0.3.2
+langgraph==0.3.5
 langchain-community==0.3.12
+fastapi==0.115.11
+langchain-text-splitters==0.3.6
+langchain==0.3.19
+pydantic==2.10.6
+ipython==9.0.1
