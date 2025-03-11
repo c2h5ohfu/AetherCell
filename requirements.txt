@@ -7,3 +7,7 @@ langchain-text-splitters==0.3.6
 langchain==0.3.19
 pydantic==2.10.6
 ipython==9.0.1
+pandas==2.2.3
+matplotlib==3.10.1
+streamlit==1.43.1
+requests==2.32.3
