@@ -15,16 +15,13 @@
 
 
 from typing import Annotated
-from langchain_community.tools.tavily_search import TavilySearchResults
 from langchain_experimental.utilities import PythonREPL
 from langchain_core.tools import tool
-
 import matplotlib.pyplot as plt
 import io
 import base64
 
 repl = PythonREPL()
-
 
 @tool
 def python_repl(code: Annotated[str, "The python code to execute to generate your chart."]):

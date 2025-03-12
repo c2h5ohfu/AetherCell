@@ -1,27 +1,28 @@
-
 from typing import Annotated
 from typing_extensions import TypedDict
 from langgraph.graph import StateGraph, START
 from langgraph.graph.message import add_messages
 from langgraph.prebuilt import ToolNode, tools_condition
 from langgraph.checkpoint.memory import MemorySaver
-
 from src.models.qwen import qwen
 from src.tools.add_demo import add
 from src.tools.Visualization import python_repl
 from src.tools.loader import load_documents
 
-memory = MemorySaver()
-
-class State(TypedDict):
-    messages: Annotated[list, add_messages]
 
 
-
+'''
+    选择自己安装的llm和要用的tools
+'''
 
 tools = [add, load_documents,python_repl]
 llm = qwen
 llm_with_tools = llm.bind_tools(tools)
+
+memory = MemorySaver()
+
+class State(TypedDict):
+    messages: Annotated[list, add_messages]
 
 
 def chatbot(state: State):
@@ -31,7 +32,6 @@ graph_builder = StateGraph(State)
 graph_builder.add_node("chatbot", chatbot)
 tool_node = ToolNode(tools=tools)
 graph_builder.add_node("tools", tool_node)
-
 graph_builder.add_conditional_edges(
     "chatbot",
     tools_condition,
