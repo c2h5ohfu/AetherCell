@@ -8,6 +8,7 @@ from langgraph.checkpoint.memory import MemorySaver
 
 from src.models.qwen import qwen
 from src.tools.add_demo import add
+from src.tools.Visualization import python_repl
 from src.tools.loader import load_documents
 
 memory = MemorySaver()
@@ -18,7 +19,7 @@ class State(TypedDict):
 
 
 
-tools = [add, load_documents]
+tools = [add, load_documents,python_repl]
 llm = qwen
 llm_with_tools = llm.bind_tools(tools)
 
@@ -28,7 +29,7 @@ def chatbot(state: State):
 
 graph_builder = StateGraph(State)
 graph_builder.add_node("chatbot", chatbot)
-tool_node = ToolNode(tools=[add,load_documents])
+tool_node = ToolNode(tools=tools)
 graph_builder.add_node("tools", tool_node)
 
 graph_builder.add_conditional_edges(
