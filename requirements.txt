@@ -1,7 +1,7 @@
 aiofiles==24.1.0
 aiosqlite==0.21.0
 chromadb==1.0.8
-fastapi==0.115.12
+fastapi==0.115.9
 jose==1.0.0
 langchain==0.3.25
 langchain_community==0.3.23
