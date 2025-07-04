@@ -1,0 +1,7 @@
+{
+  "dependencies": ["./"],
+  "graphs": {
+    "agent": "./agent/cell_agent.py:get_agent"
+  },
+  "env": ".env"
+}
